@@ -13,17 +13,16 @@ class TodoEntry extends Component {
         })
         console.log(this.state)
     }
-    componentDidMount() {
-    }
+  
     render() {
         const {onchange} = this;
+        const {addTodo} = this.props;
         return (
             <form>
                 <input type='text' onChange={event => onchange(event)}></input>
-                <button type='button' onClick={() => this.props.addTodo(this.state.todoItem)}>AddTodo</button>
+                <button type='button' onClick={() => addTodo(this.state.todoItem)}>AddTodo</button>
             </form>
         )
     }
 }
-
 export default TodoEntry;

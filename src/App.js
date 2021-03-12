@@ -3,22 +3,20 @@ import './App.css';
 import { connect } from 'react-redux';
 import { addTodo } from './Redux/actions';
 import TodoEntry from './todoEntry';
+import TodoListContainer from './todoListContainer';
 
-
-const mapStateToProps = state => ({
-  todoList: state.todoList.todoList
-})
 const mapDispatchToProps = dispatch => ({
-  add: value => dispatch(addTodo(value))
+  add: value => dispatch(addTodo(value)),
 })
 
-const App = (props) => {
-  const {add} = props;
+const App = ({add}) => {
+  
   return (
     <div className="App">
       <TodoEntry addTodo={add}/>
+      <TodoListContainer />
     </div>
   );
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(null, mapDispatchToProps)(App);
